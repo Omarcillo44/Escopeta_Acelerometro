@@ -48,9 +48,7 @@ class Escopeta {
         * Esta función es la única que puede bajar la flag de bombeo, misma
         * que permite disparar, o no */
 
-        if(cartuchosCargados >= CAPACIDAD_TUBO){
-            cartuchoEnRecamara = false
-        }
+        cartuchoEnRecamara = false
 
         if(cartuchosCargados > 0){
             cartuchoEnRecamara = true
