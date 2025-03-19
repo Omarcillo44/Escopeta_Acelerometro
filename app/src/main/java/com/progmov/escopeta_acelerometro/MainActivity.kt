@@ -1,9 +1,9 @@
 package com.progmov.escopeta_acelerometro
-
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
+import android.inputmethodservice.Keyboard.Row
 import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -26,7 +26,7 @@ class MainActivity : ComponentActivity(), SensorEventListener {
     private lateinit var sensorManager: SensorManager
     private var acelerometro: Sensor? = null
 
-    private var escopeta = Escopeta()
+    var escopeta = Escopeta()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState) //Constructor de la clase padre
@@ -60,7 +60,6 @@ class MainActivity : ComponentActivity(), SensorEventListener {
 
     var flagPosicionDisparo = false
 
-
     override fun onSensorChanged(event: SensorEvent?) {
         event?.let {
             val tiempoActual = event.timestamp
@@ -78,7 +77,7 @@ class MainActivity : ComponentActivity(), SensorEventListener {
     }
 
     private fun bombeo(x: Float, y: Float, z: Float, tiempoActual: Long) {
-        val UMBRAL_MAX_Y = 20f
+        val UMBRAL_MAX_Y = 10f
         val UMBRAL_MAX_X = 8f
         val UMBRAL_MAX_Z = 5f
         val CANTIDAD_MEDICIONES = 5
